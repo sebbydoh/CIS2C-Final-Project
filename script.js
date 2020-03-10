@@ -35,10 +35,12 @@ function nextTurn() {
 function xWins(){
     xCurrentScore = 0;
     xCurrentScore += 1;
+    alert("X wins!");
 }
 function oWin(){
     oCurrentScore = 0;
     oCurrentScore += 1;
+    alert("O wins!"); 
 }
 function squareClickListener(event) {
   this.innerText = currentTurn;
@@ -54,53 +56,53 @@ function addEventListenerToSquares() {
 function isGameWon(){
     //X win conditions
     if(squareArray[0].innerText == "X" && squareArray[1].innerText == "X" && squareArray[2].innerText == "X"){
-        xWins()
+        xWins();
     }
     if(squareArray[3].innerText == "X" && squareArray[4].innerText == "X" && squareArray[5].innerText == "X"){
-        xWins()
+        xWins();
     }
     if(squareArray[6].innerText == "X" && squareArray[7].innerText == "X" && squareArray[8].innerText == "X"){
-        xWins()
+        xWins();
     }
     if(squareArray[0].innerText == "X" && squareArray[3].innerText == "X" && squareArray[6].innerText == "X"){
-        xWins()
+        xWins();
     }
     if(squareArray[1].innerText == "X" && squareArray[4].innerText == "X" && squareArray[7].innerText == "X"){
-        xWins()
+        xWins();
     }
     if(squareArray[2].innerText == "X" && squareArray[5].innerText == "X" && squareArray[8].innerText == "X"){
-        xWins()
+        xWins();
     }
     if(squareArray[0].innerText == "X" && squareArray[4].innerText == "X" && squareArray[8].innerText == "X"){
-        xWins()
+        xWins();
     }
     if(squareArray[2].innerText == "X" && squareArray[4].innerText == "X" && squareArray[6].innerText == "X"){
-        xWins()
+        xWins();
     }
     //O win conditions
     if(squareArray[0].innerText == "O" && squareArray[1].innerText == "O" && squareArray[2].innerText == "O"){
-        oWin()
+        oWin();
     }
     if(squareArray[3].innerText == "O" && squareArray[4].innerText == "O" && squareArray[5].innerText == "O"){
-        oWin()
+        oWin();
     }
     if(squareArray[6].innerText == "O" && squareArray[7].innerText == "O" && squareArray[8].innerText == "O"){
-        oWin()
+        oWin();
     }
     if(squareArray[0].innerText == "O" && squareArray[3].innerText == "O" && squareArray[6].innerText == "O"){
-        oWin()
+        oWin();
     }
     if(squareArray[1].innerText == "O" && squareArray[4].innerText == "O" && squareArray[7].innerText == "O"){
-        oWin()
+        oWin();
     }
     if(squareArray[2].innerText == "O" && squareArray[5].innerText == "O" && squareArray[8].innerText == "O"){
-        oWin()
+        oWin();
     }
     if(squareArray[0].innerText == "O" && squareArray[4].innerText == "O" && squareArray[8].innerText == "O"){
-        oWin()
+        oWin();
     }
     if(squareArray[2].innerText == "O" && squareArray[4].innerText == "O" && squareArray[6].innerText == "O"){
-        oWin()
+        oWin();
     }
 }
 
