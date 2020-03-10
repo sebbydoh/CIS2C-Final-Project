@@ -2,6 +2,9 @@
 
 //Game Board
 let gameBoard = document.getElementById("game-board");
+//Score Board
+let xScore = document.getElementById("scoreboard-x");
+let oScore = document.getElementById("scoreboard-o");
 //Game Squares
 let a1 = document.getElementById("square-0");
 let a2 = document.getElementById("square-1");
@@ -37,10 +40,17 @@ function addEventListenerToSquares() {
     squareArray[i].addEventListener("click", squareClickListener);
   }
 }
+
+function xWins(){
+    
+}
+function oWin(){
+
+}
 function isGameWon(){
     //X win conditions
     if(squareArray[0].innerText == "X" && squareArray[1].innerText == "X" && squareArray[2].innerText == "X"){
-        //Code
+        
     }
     if(squareArray[3].innerText == "X" && squareArray[4].innerText == "X" && squareArray[5].innerText == "X"){
         //Code
@@ -64,28 +74,28 @@ function isGameWon(){
         //Code
     }
     //O win conditions
-    if(squareArray[0].innerText == "X" && squareArray[1].innerText == "X" && squareArray[2].innerText == "X"){
+    if(squareArray[0].innerText == "O" && squareArray[1].innerText == "O" && squareArray[2].innerText == "O"){
         //Code
     }
-    if(squareArray[3].innerText == "X" && squareArray[4].innerText == "X" && squareArray[5].innerText == "X"){
+    if(squareArray[3].innerText == "O" && squareArray[4].innerText == "O" && squareArray[5].innerText == "O"){
         //Code
     }
-    if(squareArray[6].innerText == "X" && squareArray[7].innerText == "X" && squareArray[8].innerText == "X"){
+    if(squareArray[6].innerText == "O" && squareArray[7].innerText == "O" && squareArray[8].innerText == "O"){
         //Code
     }
-    if(squareArray[0].innerText == "X" && squareArray[3].innerText == "X" && squareArray[6].innerText == "X"){
+    if(squareArray[0].innerText == "O" && squareArray[3].innerText == "O" && squareArray[6].innerText == "O"){
         //Code
     }
-    if(squareArray[1].innerText == "X" && squareArray[4].innerText == "X" && squareArray[7].innerText == "X"){
+    if(squareArray[1].innerText == "O" && squareArray[4].innerText == "O" && squareArray[7].innerText == "O"){
         //Code
     }
-    if(squareArray[2].innerText == "X" && squareArray[5].innerText == "X" && squareArray[8].innerText == "X"){
+    if(squareArray[2].innerText == "O" && squareArray[5].innerText == "O" && squareArray[8].innerText == "O"){
         //Code
     }
-    if(squareArray[0].innerText == "X" && squareArray[4].innerText == "X" && squareArray[8].innerText == "X"){
+    if(squareArray[0].innerText == "O" && squareArray[4].innerText == "O" && squareArray[8].innerText == "O"){
         //Code
     }
-    if(squareArray[2].innerText == "X" && squareArray[4].innerText == "X" && squareArray[6].innerText == "X"){
+    if(squareArray[2].innerText == "O" && squareArray[4].innerText == "O" && squareArray[6].innerText == "O"){
         //Code
     }
 }
