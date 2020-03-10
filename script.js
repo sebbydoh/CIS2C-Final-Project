@@ -1,3 +1,5 @@
+"use strict";
+
 //Game Board
 let gameBoard = document.getElementById("game-board");
 //Game Squares
@@ -17,8 +19,15 @@ let xTurn = "X";
 let oTurn = "O";
 
 
-function gamePlay(){
-    
+
+function turnsFunction() {
+  for (turn = 1; turn <= 9; turn++) {
+    if (turn % 2 == 0) {
+      currentTurnText = oTurn;
+    } else {
+      currentTurnText = xTurn;
+    }
+  }
 }
 
-gameBoard.addEventListener("click", gamePlay)
+a1.addEventListener("click", turnsFunction);
