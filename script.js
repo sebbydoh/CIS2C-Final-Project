@@ -4,7 +4,9 @@
 let gameBoard = document.getElementById("game-board");
 //Score Board
 let xScore = document.getElementById("scoreboard-x");
+let xCurrentScore = xScore.value;
 let oScore = document.getElementById("scoreboard-o");
+let oCurrentScore = oScore.value;
 //Game Squares
 let a1 = document.getElementById("square-0");
 let a2 = document.getElementById("square-1");
@@ -30,6 +32,14 @@ function nextTurn() {
   }
 }
 
+function xWins(){
+    xCurrentScore = 0;
+    xCurrentScore += 1;
+}
+function oWin(){
+    oCurrentScore = 0;
+    oCurrentScore += 1;
+}
 function squareClickListener(event) {
   this.innerText = currentTurn;
   nextTurn();
@@ -41,62 +51,56 @@ function addEventListenerToSquares() {
   }
 }
 
-function xWins(){
-    
-}
-function oWin(){
-
-}
 function isGameWon(){
     //X win conditions
     if(squareArray[0].innerText == "X" && squareArray[1].innerText == "X" && squareArray[2].innerText == "X"){
-        
+        xWins()
     }
     if(squareArray[3].innerText == "X" && squareArray[4].innerText == "X" && squareArray[5].innerText == "X"){
-        //Code
+        xWins()
     }
     if(squareArray[6].innerText == "X" && squareArray[7].innerText == "X" && squareArray[8].innerText == "X"){
-        //Code
+        xWins()
     }
     if(squareArray[0].innerText == "X" && squareArray[3].innerText == "X" && squareArray[6].innerText == "X"){
-        //Code
+        xWins()
     }
     if(squareArray[1].innerText == "X" && squareArray[4].innerText == "X" && squareArray[7].innerText == "X"){
-        //Code
+        xWins()
     }
     if(squareArray[2].innerText == "X" && squareArray[5].innerText == "X" && squareArray[8].innerText == "X"){
-        //Code
+        xWins()
     }
     if(squareArray[0].innerText == "X" && squareArray[4].innerText == "X" && squareArray[8].innerText == "X"){
-        //Code
+        xWins()
     }
     if(squareArray[2].innerText == "X" && squareArray[4].innerText == "X" && squareArray[6].innerText == "X"){
-        //Code
+        xWins()
     }
     //O win conditions
     if(squareArray[0].innerText == "O" && squareArray[1].innerText == "O" && squareArray[2].innerText == "O"){
-        //Code
+        oWin()
     }
     if(squareArray[3].innerText == "O" && squareArray[4].innerText == "O" && squareArray[5].innerText == "O"){
-        //Code
+        oWin()
     }
     if(squareArray[6].innerText == "O" && squareArray[7].innerText == "O" && squareArray[8].innerText == "O"){
-        //Code
+        oWin()
     }
     if(squareArray[0].innerText == "O" && squareArray[3].innerText == "O" && squareArray[6].innerText == "O"){
-        //Code
+        oWin()
     }
     if(squareArray[1].innerText == "O" && squareArray[4].innerText == "O" && squareArray[7].innerText == "O"){
-        //Code
+        oWin()
     }
     if(squareArray[2].innerText == "O" && squareArray[5].innerText == "O" && squareArray[8].innerText == "O"){
-        //Code
+        oWin()
     }
     if(squareArray[0].innerText == "O" && squareArray[4].innerText == "O" && squareArray[8].innerText == "O"){
-        //Code
+        oWin()
     }
     if(squareArray[2].innerText == "O" && squareArray[4].innerText == "O" && squareArray[6].innerText == "O"){
-        //Code
+        oWin()
     }
 }
 
