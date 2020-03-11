@@ -2,11 +2,6 @@
 
 //Game Board
 let gameBoard = document.getElementById("game-board");
-//Score Board
-let xScore = document.getElementById("scoreboard-x");
-let xCurrentScore = xScore.value;
-let oScore = document.getElementById("scoreboard-o");
-let oCurrentScore = oScore.value;
 //Game Squares
 let a1 = document.getElementById("square-0");
 let a2 = document.getElementById("square-1");
@@ -18,45 +13,67 @@ let c1 = document.getElementById("square-6");
 let c2 = document.getElementById("square-7");
 let c3 = document.getElementById("square-8");
 let squareArray = [a1, a2, a3, b1, b2, b3, c1, c2, c3];
-
+//getItem Variables
+let xSavedScore = localStorage.getItem("xSavedScore");
+let oSavedScore = localStorage.getItem("oSavedScore");
 //Current Turn
 let currentTurn = "X";
 let currentTurnDisplay = document.getElementById("turn");
-
-function nextTurn() {
-  if (currentTurn == "X") {
-    currentTurn = "O";
-    currentTurnDisplay.Text = "O";
-    isGameWon();
-  } else {
-    currentTurn = "X";
-    currentTurnDisplay.Text = "X";
-    isGameWon();
-  }
-}
-function gameOver() {
-    for (let i = 0; i <= squareArray.length - 1; i++) {
-        squareArray[i].removeEventListener("click", squareClickListener);
-      }
-}
-
+//Score Board
+let xScore = document.getElementById("scoreboard-x");
+let oScore = document.getElementById("scoreboard-o");
+xScore.innerText = xSavedScore;
+oScore.innerText = oSavedScore;
+let oCurrentScore = oScore.innerText;
+let xCurrentScore = xScore.innerText;
+//Scoreboard
 function xWins() {
-  xCurrentScore = 0;
+    
   xCurrentScore += 1;
-  alert("X wins!");
+  xScore.innerText = xCurrentScore;
   gameOver();
+  alert("X wins!");
 }
 function oWin() {
-  oCurrentScore = 0;
   oCurrentScore += 1;
-  alert("O wins!");
+  oScore.innerText = oCurrentScore;
   gameOver();
+  alert("O wins!");
 }
+function nextTurn() {
+    if (currentTurn == "X") {
+        currentTurn = "O";
+        currentTurnDisplay.innerText = "O";
+        isGameWon();
+    } else {
+        currentTurn = "X";
+        currentTurnDisplay.innerText = "X";
+        isGameWon();
+    }
+}
+function gameOver() {
+  for (let i = 0; i <= squareArray.length - 1; i++) {
+    squareArray[i].removeEventListener("click", squareClickListener);
+  }
+  saveScore();
+}
+//Save state
+function saveScore() {
+  localStorage.setItem("xSavedScore", xCurrentScore);
+  localStorage.setItem("oSavedScore", oCurrentScore);
+}
+//Apply Saved Score
+function applySavedScore(){
+    xCurrentScore = xSavedScore;
+    oCurrentScore = oSavedScore;
+}
+
 function squareClickListener(event) {
   this.innerText = currentTurn;
   nextTurn();
   this.removeEventListener("click", squareClickListener);
 }
+
 function addEventListenerToSquares() {
   for (let i = 0; i <= squareArray.length - 1; i++) {
     squareArray[i].addEventListener("click", squareClickListener);
@@ -181,4 +198,3 @@ function isGameWon() {
 }
 
 addEventListenerToSquares();
-
