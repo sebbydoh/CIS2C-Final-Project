@@ -22,25 +22,35 @@ let squareArray = [a1, a2, a3, b1, b2, b3, c1, c2, c3];
 //Current Turn
 let currentTurn = "X";
 let currentTurnDisplay = document.getElementById("turn");
-let currentTurnText = currentTurn.value;
 
 function nextTurn() {
   if (currentTurn == "X") {
     currentTurn = "O";
+    currentTurnDisplay.Text = "O";
+    isGameWon();
   } else {
     currentTurn = "X";
+    currentTurnDisplay.Text = "X";
+    isGameWon();
   }
 }
-
-function xWins(){
-    xCurrentScore = 0;
-    xCurrentScore += 1;
-    alert("X wins!");
+function gameOver() {
+    for (let i = 0; i <= squareArray.length - 1; i++) {
+        squareArray[i].removeEventListener("click", squareClickListener);
+      }
 }
-function oWin(){
-    oCurrentScore = 0;
-    oCurrentScore += 1;
-    alert("O wins!"); 
+
+function xWins() {
+  xCurrentScore = 0;
+  xCurrentScore += 1;
+  alert("X wins!");
+  gameOver();
+}
+function oWin() {
+  oCurrentScore = 0;
+  oCurrentScore += 1;
+  alert("O wins!");
+  gameOver();
 }
 function squareClickListener(event) {
   this.innerText = currentTurn;
@@ -53,57 +63,122 @@ function addEventListenerToSquares() {
   }
 }
 
-function isGameWon(){
-    //X win conditions
-    if(squareArray[0].innerText == "X" && squareArray[1].innerText == "X" && squareArray[2].innerText == "X"){
-        xWins();
-    }
-    if(squareArray[3].innerText == "X" && squareArray[4].innerText == "X" && squareArray[5].innerText == "X"){
-        xWins();
-    }
-    if(squareArray[6].innerText == "X" && squareArray[7].innerText == "X" && squareArray[8].innerText == "X"){
-        xWins();
-    }
-    if(squareArray[0].innerText == "X" && squareArray[3].innerText == "X" && squareArray[6].innerText == "X"){
-        xWins();
-    }
-    if(squareArray[1].innerText == "X" && squareArray[4].innerText == "X" && squareArray[7].innerText == "X"){
-        xWins();
-    }
-    if(squareArray[2].innerText == "X" && squareArray[5].innerText == "X" && squareArray[8].innerText == "X"){
-        xWins();
-    }
-    if(squareArray[0].innerText == "X" && squareArray[4].innerText == "X" && squareArray[8].innerText == "X"){
-        xWins();
-    }
-    if(squareArray[2].innerText == "X" && squareArray[4].innerText == "X" && squareArray[6].innerText == "X"){
-        xWins();
-    }
-    //O win conditions
-    if(squareArray[0].innerText == "O" && squareArray[1].innerText == "O" && squareArray[2].innerText == "O"){
-        oWin();
-    }
-    if(squareArray[3].innerText == "O" && squareArray[4].innerText == "O" && squareArray[5].innerText == "O"){
-        oWin();
-    }
-    if(squareArray[6].innerText == "O" && squareArray[7].innerText == "O" && squareArray[8].innerText == "O"){
-        oWin();
-    }
-    if(squareArray[0].innerText == "O" && squareArray[3].innerText == "O" && squareArray[6].innerText == "O"){
-        oWin();
-    }
-    if(squareArray[1].innerText == "O" && squareArray[4].innerText == "O" && squareArray[7].innerText == "O"){
-        oWin();
-    }
-    if(squareArray[2].innerText == "O" && squareArray[5].innerText == "O" && squareArray[8].innerText == "O"){
-        oWin();
-    }
-    if(squareArray[0].innerText == "O" && squareArray[4].innerText == "O" && squareArray[8].innerText == "O"){
-        oWin();
-    }
-    if(squareArray[2].innerText == "O" && squareArray[4].innerText == "O" && squareArray[6].innerText == "O"){
-        oWin();
-    }
+function isGameWon() {
+  //X win conditions
+  if (
+    squareArray[0].innerText == "X" &&
+    squareArray[1].innerText == "X" &&
+    squareArray[2].innerText == "X"
+  ) {
+    xWins();
+  }
+  if (
+    squareArray[3].innerText == "X" &&
+    squareArray[4].innerText == "X" &&
+    squareArray[5].innerText == "X"
+  ) {
+    xWins();
+  }
+  if (
+    squareArray[6].innerText == "X" &&
+    squareArray[7].innerText == "X" &&
+    squareArray[8].innerText == "X"
+  ) {
+    xWins();
+  }
+  if (
+    squareArray[0].innerText == "X" &&
+    squareArray[3].innerText == "X" &&
+    squareArray[6].innerText == "X"
+  ) {
+    xWins();
+  }
+  if (
+    squareArray[1].innerText == "X" &&
+    squareArray[4].innerText == "X" &&
+    squareArray[7].innerText == "X"
+  ) {
+    xWins();
+  }
+  if (
+    squareArray[2].innerText == "X" &&
+    squareArray[5].innerText == "X" &&
+    squareArray[8].innerText == "X"
+  ) {
+    xWins();
+  }
+  if (
+    squareArray[0].innerText == "X" &&
+    squareArray[4].innerText == "X" &&
+    squareArray[8].innerText == "X"
+  ) {
+    xWins();
+  }
+  if (
+    squareArray[2].innerText == "X" &&
+    squareArray[4].innerText == "X" &&
+    squareArray[6].innerText == "X"
+  ) {
+    xWins();
+  }
+  //O win conditions
+  if (
+    squareArray[0].innerText == "O" &&
+    squareArray[1].innerText == "O" &&
+    squareArray[2].innerText == "O"
+  ) {
+    oWin();
+  }
+  if (
+    squareArray[3].innerText == "O" &&
+    squareArray[4].innerText == "O" &&
+    squareArray[5].innerText == "O"
+  ) {
+    oWin();
+  }
+  if (
+    squareArray[6].innerText == "O" &&
+    squareArray[7].innerText == "O" &&
+    squareArray[8].innerText == "O"
+  ) {
+    oWin();
+  }
+  if (
+    squareArray[0].innerText == "O" &&
+    squareArray[3].innerText == "O" &&
+    squareArray[6].innerText == "O"
+  ) {
+    oWin();
+  }
+  if (
+    squareArray[1].innerText == "O" &&
+    squareArray[4].innerText == "O" &&
+    squareArray[7].innerText == "O"
+  ) {
+    oWin();
+  }
+  if (
+    squareArray[2].innerText == "O" &&
+    squareArray[5].innerText == "O" &&
+    squareArray[8].innerText == "O"
+  ) {
+    oWin();
+  }
+  if (
+    squareArray[0].innerText == "O" &&
+    squareArray[4].innerText == "O" &&
+    squareArray[8].innerText == "O"
+  ) {
+    oWin();
+  }
+  if (
+    squareArray[2].innerText == "O" &&
+    squareArray[4].innerText == "O" &&
+    squareArray[6].innerText == "O"
+  ) {
+    oWin();
+  }
 }
 
 addEventListenerToSquares();
+
