@@ -33,7 +33,13 @@ function xWins() {
     xScore.innerText = score;
     xCurrentScore = score;
     gameOver();
+    setTimeout(alertWinX, 30);
+  }
+  function alertWinX(){
     alert("X wins!");
+}
+function alertWinO(){
+  alert("O wins!");
 }
 function oWin() {
     let score = parseInt(oCurrentScore);
@@ -41,7 +47,7 @@ function oWin() {
     oScore.innerText = score;
     oCurrentScore = score;
     gameOver();
-    alert("O wins!");
+    setTimeout(alertWinO, 30);
 }
 function nextTurn() {
     if (currentTurn == "X") {
