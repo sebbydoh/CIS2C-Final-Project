@@ -25,67 +25,66 @@ let oScore = document.getElementById("scoreboard-o");
 let oCurrentScore;
 let xCurrentScore;
 
-
-//Scoreboard
-function xWins() {
-    let score = parseInt(xCurrentScore);
-    score += 1;
-    xScore.innerText = score;
-    xCurrentScore = score;
-    gameOver();
-    setTimeout(alertWinX, 30);
-  }
-  function alertWinX(){
-    alert("X wins!");
+//Win Functions
+function alertWinX() {
+  alert("X wins!");
 }
-function alertWinO(){
+function alertWinO() {
   alert("O wins!");
 }
+function xWins() {
+  let score = parseInt(xCurrentScore);
+  score += 1;
+  xScore.innerText = score;
+  xCurrentScore = score;
+  gameOver();
+  setTimeout(alertWinX, 30);
+}
 function oWin() {
-    let score = parseInt(oCurrentScore);
-    score += 1;
-    oScore.innerText = score;
-    oCurrentScore = score;
-    gameOver();
-    setTimeout(alertWinO, 30);
+  let score = parseInt(oCurrentScore);
+  score += 1;
+  oScore.innerText = score;
+  oCurrentScore = score;
+  gameOver();
+  setTimeout(alertWinO, 30);
 }
 function nextTurn() {
-    if (currentTurn == "X") {
-        currentTurn = "O";
-        currentTurnDisplay.innerText = "O";
-        isGameWon();
-    } else {
-        currentTurn = "X";
-        currentTurnDisplay.innerText = "X";
-        isGameWon();
-    }
+  if (currentTurn == "X") {
+    currentTurn = "O";
+    currentTurnDisplay.innerText = "O";
+    isGameWon();
+  } else {
+    currentTurn = "X";
+    currentTurnDisplay.innerText = "X";
+    isGameWon();
+  }
 }
 function gameOver() {
-    for (let i = 0; i <= squareArray.length - 1; i++) {
-        squareArray[i].removeEventListener("click", squareClickListener);
-    }
-    saveScore();
+  for (let i = 0; i <= squareArray.length - 1; i++) {
+    squareArray[i].removeEventListener("click", squareClickListener);
+  }
+  saveScore();
 }
 //Save state
 function getSavedScore() {
   let xSavedScore = localStorage.getItem("xSavedScore");
   let oSavedScore = localStorage.getItem("oSavedScore");
-  if(xSavedScore === null){
+  if (xSavedScore === null) {
     xCurrentScore = xScore.innerText;
   } else {
-      xCurrentScore = xSavedScore;
-      xScore.innerText = xCurrentScore;
+    xCurrentScore = xSavedScore;
+    xScore.innerText = xCurrentScore;
   }
-  if(oSavedScore === null){
-      oCurrentScore = oScore.innerText;
+  if (oSavedScore === null) {
+    oCurrentScore = oScore.innerText;
   } else {
-      oCurrentScore = oSavedScore;
-      oScore.innerText = oCurrentScore;
+    oCurrentScore = oSavedScore;
+    oScore.innerText = oCurrentScore;
   }
 }
 function saveScore() {
-    localStorage.setItem("xSavedScore", xCurrentScore);
-    localStorage.setItem("oSavedScore", oCurrentScore);
+  localStorage.setItem("xSavedScore", xCurrentScore);
+  localStorage.setItem("oSavedScore", oCurrentScore);
 }
 //Apply Saved Score
 function applySavedScore() {
@@ -223,5 +222,3 @@ function isGameWon() {
 }
 getSavedScore();
 addEventListenerToSquares();
-
-
